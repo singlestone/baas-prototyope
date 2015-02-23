@@ -1,0 +1,45 @@
+{
+	"type": "Collection",
+	"properties": {
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "name",
+			"order": 0
+		},
+		"abbreviation": {
+			"name": "abbreviation",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "abbreviation",
+			"order": 1
+		},
+		"managerId": {
+			"name": "managerId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "managerId",
+			"order": 2
+		},
+		"parentTeamId": {
+			"name": "parentTeamId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "parentTeamId",
+			"order": 3
+		},
+		"order": {
+			"name": "order",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "order",
+			"order": 4
+		}
+	}
+}

@@ -1,0 +1,21 @@
+{
+	"type": "UserCollection",
+	"properties": {
+		"roles": {
+			"name": "roles",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "roles",
+			"order": 0
+		},
+		"consultantId": {
+			"name": "consultantId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "consultantId",
+			"order": 1
+		}
+	}
+}

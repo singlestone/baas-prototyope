@@ -1,0 +1,77 @@
+{
+	"type": "Collection",
+	"properties": {
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "name",
+			"order": 0
+		},
+		"description": {
+			"name": "description",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "description",
+			"order": 1
+		},
+		"clientId": {
+			"name": "clientId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "clientId",
+			"order": 2
+		},
+		"startDate": {
+			"name": "startDate",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "startDate",
+			"order": 3
+		},
+		"endDate": {
+			"name": "endDate",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "endDate",
+			"order": 4
+		},
+		"status": {
+			"name": "status",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "status",
+			"order": 5
+		},
+		"probability": {
+			"name": "probability",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "probability",
+			"order": 6
+		},
+		"createdBy": {
+			"name": "createdBy",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "createdBy",
+			"order": 7
+		},
+		"members": {
+			"name": "members",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "members",
+			"order": 8
+		}
+	}
+}

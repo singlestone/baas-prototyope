@@ -1,0 +1,45 @@
+{
+	"type": "Collection",
+	"properties": {
+		"projectId": {
+			"name": "projectId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "projectId",
+			"order": 0
+		},
+		"consultantId": {
+			"name": "consultantId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "consultantId",
+			"order": 1
+		},
+		"roleId": {
+			"name": "roleId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "roleId",
+			"order": 2
+		},
+		"date": {
+			"name": "date",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "date",
+			"order": 3
+		},
+		"hours": {
+			"name": "hours",
+			"type": "number",
+			"typeLabel": "number",
+			"required": true,
+			"id": "hours",
+			"order": 4
+		}
+	}
+}

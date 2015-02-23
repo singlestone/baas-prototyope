@@ -1,0 +1,77 @@
+{
+	"type": "Collection",
+	"properties": {
+		"name": {
+			"name": "name",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "name",
+			"order": 0
+		},
+		"email": {
+			"name": "email",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "email",
+			"order": 1
+		},
+		"levelId": {
+			"name": "levelId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "levelId",
+			"order": 2
+		},
+		"title": {
+			"name": "title",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "title",
+			"order": 3
+		},
+		"teamId": {
+			"name": "teamId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": true,
+			"id": "teamId",
+			"order": 4
+		},
+		"roles": {
+			"name": "roles",
+			"type": "array",
+			"typeLabel": "array",
+			"required": false,
+			"id": "roles",
+			"order": 5
+		},
+		"endDate": {
+			"name": "endDate",
+			"type": "number",
+			"typeLabel": "number",
+			"required": false,
+			"id": "endDate",
+			"order": 6
+		},
+		"userId": {
+			"name": "userId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "userId",
+			"order": 7
+		},
+		"managerId": {
+			"name": "managerId",
+			"type": "string",
+			"typeLabel": "string",
+			"required": false,
+			"id": "managerId",
+			"order": 8
+		}
+	}
+}

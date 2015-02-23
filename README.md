@@ -12,9 +12,9 @@ Source: [Wikipedia](http://en.wikipedia.org/wiki/Mobile_Backend_as_a_service)
 
 There are a couple of reasons why BaaS is a good fit for Prototype development:
 
-1. Saves time - BaaS products will provide simple API's for storage, authentication, email, etc saving custom development time on the backend.
-2. Saves money - See #1. Time is money.
-3. Front End Developer only - Using a BaaS, a reasonably complex application can be completely built by an experienced Front End Developer. This is important because we will be trying to keep project costs down by staffing the project with a single developer. If that developer did not need to know a traditional server side language (.Net, Java, Ruby, etc..) your typical FED could perform the role.
+1. **Saves time** - BaaS products will provide simple API's for storage, authentication, email, etc saving custom development time on the backend.
+2. **Saves money** - See #1. Time is money.
+3. **Front End Developer only** - Using a BaaS, a reasonably complex application can be completely built by an experienced Front End Developer. This is important because we will be trying to keep project costs down by staffing the project with a single developer. If that developer did not need to know a traditional server side language (.Net, Java, Ruby, etc..) your typical FED could perform the role.
 
 ## BaaS Products to Evaluate
 
@@ -32,11 +32,41 @@ There are a couple of reasons why BaaS is a good fit for Prototype development:
 ### Open Source
 * [Baas Box](http://www.baasbox.com/)
 * [deployd](http://deployd.com/)
+* [Dream Factory](https://www.dreamfactory.com/)
 * [Hoodie](http://hood.ie/)
 * [remoteStorage](http://remotestorage.io/)
-* [Sockethub](http://sockethub.org/)
+* [Usergrid](http://usergrid.incubator.apache.org/)
 
 ## Comparison Matrix
 
-Coming Soon
+Feature | deployd
+--------|--------
+Persistence | Yes (MongoDB)
+Custom Endpoints | Yes
+Custom Validation | Yes
+Extensible | Yes (NodeJS Modules)
+Realtime | Optional (WebSockets)
+UI Hosting | Yes
+Local Dev | Yes
+Local Install | Yes
+Hosted | No
+VCS Friendly | Yes
+Tasks/Jobs | Via plugin
+Execute arbitrary code | Via plugins
+Email support | Via plugin
+Geo Services | Via Mongo
+User Mangement | Yes
+User Authorization | Yes
+Auth: Password | Yes
+Auth: Facebook | Via plugin
+Auth: Google+ | Via plugin
+Auth: Twitter | Via plugin
+Auth: Custom | Via plugin
+Auth: LDAP | ?
+A/B Testing | No
+File uploads | S3 via plugin
+Proxy 3rd party services | Via plugin
+Admin Console | Yes
+Push Notifications | No
+Integrated Analytics | No
 

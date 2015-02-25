@@ -1,0 +1,85 @@
+<h1 ng-show="con.isAdd">Add Consultant</h1>
+<h1 ng-hide="con.isAdd">Edit Consultant</h1>
+<form name="consultantForm" class="form-horizontal" ng-submit="con.save(con.consultant)" novalidate>
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name (Last, First)</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="name" id="name" placeholder="Name" type="text" required
+             ng-model="con.consultant.name">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="email" class="col-sm-2 control-label">Email</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="email" id="email" placeholder="Email" type="email" required
+             ng-model="con.consultant.email">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="title" class="col-sm-2 control-label">Title</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="title" id="title" placeholder="Title" type="text"
+             ng-model="con.consultant.title">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="levelId" class="col-sm-2 control-label">Level</label>
+    <div class="col-sm-4">
+      <select name="levelId" class="form-control" id="levelId" required
+              ng-model="con.consultant.levelId"
+              ng-options="level.id as level.name for level in con.levels | orderBy:'order'">
+              <option value="">Select a Level</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="teamId" class="col-sm-2 control-label">Team</label>
+    <div class="col-sm-4">
+      <select name="teamId" class="form-control" id="teamId" required
+              ng-model="con.consultant.teamId"
+              ng-options="team.id as con.getTeamName(team) for team in con.teams | orderBy:'order'">
+              <option value="">Select a Team</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="managerId" class="col-sm-2 control-label">Manager</label>
+    <div class="col-sm-4">
+      <select name="managerId" class="form-control" id="managerId"
+              ng-model="con.consultant.managerId"
+              ng-options="manager.id as manager.name for manager in con.managers | orderBy:'name'">
+              <option value="">Select a Manager</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="role" class="col-sm-2 control-label">Roles</label>
+    <div class="col-sm-4">
+      <div class="input-group" ng-repeat="role in con.consultant.roles track by $index">
+        <input type="text" class="form-control" readonly ng-value="con.getRole(role).name">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="con.removeRole(role)">
+            <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+          </button>
+        </span>
+      </div>
+      <select name="newRole" class="form-control" id="newRole"
+              ng-model="con.newRole" ng-change="con.addRole(con.newRole)"
+              ng-options="role.id as role.name for role in con.roles">
+              <option value="">Select a role</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <button type="submit" class="btn btn-primary" ng-disabled="consultantForm.$invalid">Save</button>
+    </div>
+  </div>
+</form>

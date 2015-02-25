@@ -1,0 +1,27 @@
+<div class="row">
+  <h1 class="col-md-6">Consultants</h1>
+  <div class="col-md-6 page-actions">
+    <a class="btn btn-primary pull-right" href="#/consultant/add">Add</a>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Level</th>
+      <th>Team</th>
+      <th>Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="consultant in con.consultants track by consultant.id">
+      <td><a ng-href="#/consultant/{{consultant.id}}">{{ consultant.name }}</a></td>
+      <td>{{ consultant.title }}</td>
+      <td>{{ consultant.levelId }}</td>
+      <td>{{ consultant.teamId }}</td>
+      <td>{{ consultant.email }}</td>
+    </tr>
+  </tbody>
+</table>

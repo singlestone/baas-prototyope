@@ -1,0 +1,37 @@
+<div class="row">
+  <h1 class="col-md-6">{{ con.consultant.name }}</h1>
+  <div class="col-md-6 page-actions">
+    <div class="btn-group pull-right">
+      <a class="btn btn-default" ng-href="#/consultant/{{ con.consultant.id }}/edit">Edit</a>
+      <button type="button" class="btn btn-danger" ng-click="con.remove(con.consultant)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div ng-show="con.consultant.title">
+  <strong>{{ con.consultant.title }}</strong>
+</div>
+<div>
+  <em>{{ con.consultant.level.name }}, {{ con.consultant.team.name }} Team</em>
+</div>
+
+<p/>
+<p/>
+<p/>
+
+<div class="row">
+  <div class="col-md-2 view-label">Email:</div>
+  <div class="col-md-4">{{ con.consultant.email }}</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">Manager:</div>
+  <div class="col-md-4" ng-if="con.consultant.manager">{{ con.consultant.manager.name }}</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">Roles:</div>
+  <div class="col-md-4">
+    <div ng-repeat="roleId in con.consultant.roles">{{ con.getRole(roleId).name }}</div>
+  </div>
+</div>

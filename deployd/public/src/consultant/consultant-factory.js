@@ -8,15 +8,30 @@
   function Consultant($http) {
     return {
       search: search,
-      create: create
+      get: get,
+      save: save,
+      remove: remove
     };
 
     function search() {
       return $http.get('/consultants');
     }
 
-    function create(consultant) {
-      return $http.post('/consultants', consultant);
+    function get(id) {
+      return $http.get('/consultants/' + id);
+    }
+
+    function save(consultant) {
+      var slug = consultant.id ? '/' + consultant.id : '';
+      return $http({
+        url: '/consultants' + slug,
+        method: consultant.id ? 'PUT' : 'POST',
+        data: consultant
+      });
+    }
+
+    function remove(consultant) {
+      return $http({ url: '/consultants/' + consultant.id, method: 'DELETE'});
     }
 
   }

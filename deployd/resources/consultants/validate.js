@@ -36,7 +36,7 @@ if (consultant.managerId) {
 
 // Each role exists
 if (consultant.roles && consultant.roles.length > 0) {
-    dpd.roles.get({ $in: consultant.roles }, function(roles) {
+    dpd.roles.get({id: { $in: consultant.roles }}, function(roles) {
         errorIf(roles.length !== consultant.roles.length, 'roles', 'One or more roles are invalid.')
     })
 }

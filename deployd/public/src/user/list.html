@@ -1,0 +1,26 @@
+<h1>Users</h1>
+<a class="btn btn-primary" href="#/user/add">Add</a>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Actions</th>
+      <th>User Name</th>
+      <th>Roles</th>
+      <th>Consultant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="usr in user.users track by usr.id">
+      <td>
+        <a ng-href="#/user/{{usr.id}}" class="btn btn-default">Edit</a>
+        <button type="button" class="btn btn-danger" ng-click="user.remove(usr)">Delete</button>
+      </td>
+      <td>{{ usr.username}}</td>
+      <td>
+        <span ng-repeat="role in usr.roles track by $index">{{ role }}<span ng-hide="$last">, <span></span>
+      </td>
+      <td>{{ usr.consultantId }}</td>
+    </tr>
+  </tbody>
+</table>

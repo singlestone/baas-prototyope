@@ -1,0 +1,55 @@
+<h1 ng-show="user.isAdd">Add User</h1>
+<h1 ng-hide="user.isAdd">Edit User</h1>
+<form name="userForm" class="form-horizontal" ng-submit="user.save(user.user)" novalidate>
+  <div class="form-group">
+    <label for="username" class="col-sm-2 control-label">User Name</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="username" id="username" placeholder="User name" required
+             ng-model="user.user.username">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="password" class="col-sm-2 control-label">Password</label>
+    <div class="col-sm-4">
+      <input type="password" name="password" class="form-control" id="password" placeholder="Password" required
+             ng-model="user.user.password">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="role" class="col-sm-2 control-label">Roles</label>
+    <div class="col-sm-4">
+      <div class="input-group" ng-repeat="role in user.user.roles track by $index">
+        <input type="text" class="form-control" readonly ng-value="role">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="user.removeRole(role)">
+            <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+          </button>
+        </span>
+      </div>
+      <select name="newRole" class="form-control" id="newRole"
+              ng-model="user.newRole" ng-change="user.addRole(user.newRole)"
+              ng-options="role for role in user.roles">
+              <option value="">Select a role</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="consultantId" class="col-sm-2 control-label">Consultant</label>
+    <div class="col-sm-4">
+      <select name="consultantId" class="form-control" id="consultantId"
+              ng-model="user.user.consultantId"
+              ng-options="consultant.id as consultant.name for consultant in user.consultants">
+              <option value="">Select a Consultant</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <button type="submit" class="btn btn-primary" ng-disabled="userForm.$invalid">Save</button>
+    </div>
+  </div>
+</form>

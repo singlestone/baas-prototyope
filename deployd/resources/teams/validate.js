@@ -2,10 +2,10 @@
 var team = this;
 
 // unique name
-dpd.levels.get(like('name'), unique('name'));
+dpd.teams.get(like('name'), unique('name'));
 
 // unique abbreviation
-dpd.levels.get(like('abbreviation'), unique('abbreviation'));
+dpd.teams.get(like('abbreviation'), unique('abbreviation'));
 
 // abbreviation.length <= 6
 errorIf(team.abbreviation.length > 6, 'abbreviation', 'Abbreviation must be 6 characters or less.')
@@ -25,7 +25,7 @@ if (team.parentTeamId) {
 function like(field) {
     var query = {};
     query[field] = {
-        $regex: '^' + level[field] + '$',
+        $regex: '^' + team[field] + '$',
         $options: 'i'        
     };
     return query;

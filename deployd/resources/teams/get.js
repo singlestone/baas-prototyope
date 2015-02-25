@@ -10,4 +10,4 @@ dpd.teams.get({parentTeamId: team.id, $limitRecursion: 5}, function(teams) {
     if (teams && teams.length) {
         team.children = teams;
     }
-})
+});

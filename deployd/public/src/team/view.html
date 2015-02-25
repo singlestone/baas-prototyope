@@ -1,0 +1,24 @@
+<div class="row">
+  <h1 class="col-md-9">{{ team.team.name }} ({{ team.team.abbreviation }})</h1>
+  <div class="col-md-3 page-actions">
+    <div class="btn-group pull-right">
+      <a class="btn btn-default" ng-href="#/team/{{ team.team.id }}/edit">Edit</a>
+      <button type="button" class="btn btn-danger" ng-click="team.remove(team.team)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">Parent:</div>
+  <div class="col-md-4" ng-if="team.team.parentTeam">{{ team.team.parentTeam.name }}</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">Manager:</div>
+  <div class="col-md-4" ng-if="team.team.manager">{{ team.team.manager.name }}</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">Order:</div>
+  <div class="col-md-4">{{ team.team.order }}</div>
+</div>

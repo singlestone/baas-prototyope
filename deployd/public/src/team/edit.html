@@ -1,0 +1,55 @@
+<h1 ng-show="team.isAdd">Add Team</h1>
+<h1 ng-hide="team.isAdd">Edit Team</h1>
+<form name="teamForm" class="form-horizontal" ng-submit="team.save(team.team)" novalidate>
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="name" id="name" placeholder="Name" type="text" required
+             ng-model="team.team.name">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="abbreviation" class="col-sm-2 control-label">Abbreviation</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="abbreviation" id="abbreviation" placeholder="Abbreviation" type="text" required
+             ng-model="team.team.abbreviation">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="managerId" class="col-sm-2 control-label">Manager</label>
+    <div class="col-sm-4">
+      <select name="managerId" class="form-control" id="managerId"
+              ng-model="team.team.managerId"
+              ng-options="manager.id as manager.name for manager in team.managers | orderBy:'name'">
+              <option value="">Select a Manager</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="parentTeamId" class="col-sm-2 control-label">Parent Team</label>
+    <div class="col-sm-4">
+      <select name="parentTeamId" class="form-control" id="teamId"
+              ng-model="team.team.parentTeamId"
+              ng-options="t.id as team.getTeamName(t) for t in team.teams | orderBy:'order'">
+              <option value="">Select a Team</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="order" class="col-sm-2 control-label">Order</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="order" id="order" placeholder="Order" type="number" required
+             ng-model="team.team.order">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <button type="submit" class="btn btn-primary" ng-disabled="teamForm.$invalid">Save</button>
+    </div>
+  </div>
+</form>

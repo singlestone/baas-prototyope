@@ -57,21 +57,13 @@
 			"id": "probability",
 			"order": 6
 		},
-		"createdBy": {
-			"name": "createdBy",
-			"type": "string",
-			"typeLabel": "string",
-			"required": true,
-			"id": "createdBy",
-			"order": 7
-		},
 		"members": {
 			"name": "members",
 			"type": "array",
 			"typeLabel": "array",
 			"required": false,
 			"id": "members",
-			"order": 8
+			"order": 7
 		}
 	}
 }

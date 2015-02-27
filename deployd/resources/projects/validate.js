@@ -19,7 +19,7 @@ errorIf(project.probability < 0 || project.probability > 1, 'probability', 'Prob
 function like(field) {
     var query = {};
     query[field] = {
-        $regex: '^' + level[field] + '$',
+        $regex: '^' + project[field] + '$',
         $options: 'i'        
     };
     return query;

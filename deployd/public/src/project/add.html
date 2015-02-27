@@ -1,0 +1,87 @@
+<h1>Add Project</h1>
+
+<form name="projectForm" class="form-horizontal" ng-submit="proj.save(proj.project)" novalidate>
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="name" id="name" placeholder="Name" type="text" required
+             ng-model="proj.project.name">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="description" class="col-sm-2 control-label">Description</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="description" id="description" placeholder="Description" type="text"
+             ng-model="proj.project.description">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="clientId" class="col-sm-2 control-label">Client</label>
+    <div class="col-sm-4">
+      <select name="clientId" class="form-control" id="clientId" required
+              ng-model="proj.project.clientId"
+              ng-options="client.id as client.name for client in proj.clients | orderBy:'name'">
+              <option value="">Select a Client</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="startDate" class="col-sm-2 control-label">Start Date</label>
+    <div class="col-sm-4">
+      <p class="input-group">
+        <input type="text" class="form-control" id="startDate" name="startDate" placeholder="mm/dd/yyyy"
+               datepicker-popup="{{proj.date.format}}" is-open="proj.date.startOpened" datepicker-options="proj.date.options"
+               ng-model="proj.project.startDate" ng-required="true" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="proj.date.open('start', $event)">
+            <i class="glyphicon glyphicon-calendar"></i>
+          </button>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="endDate" class="col-sm-2 control-label">End Date</label>
+    <div class="col-sm-4">
+      <p class="input-group">
+        <input type="text" class="form-control" id="endDate" name="endDate" placeholder="mm/dd/yyyy"
+               datepicker-popup="{{proj.date.format}}" is-open="proj.date.endOpened" datepicker-options="proj.date.options"
+               ng-model="proj.project.endDate" ng-required="true" />
+        <span class="input-group-btn">
+          <button type="button" class="btn btn-default" ng-click="proj.date.open('end', $event)">
+            <i class="glyphicon glyphicon-calendar"></i>
+          </button>
+        </span>
+      </p>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="status" class="col-sm-2 control-label">Status</label>
+    <div class="col-sm-4">
+      <select name="status" class="form-control" id="status" required
+              ng-model="proj.project.status"
+              ng-options="status for status in proj.statuses">
+              <option value="">Select a Status</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="probability" class="col-sm-2 control-label">Probability</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="probability" id="probability" placeholder="Probability" type="number" required
+             ng-model="proj.project.probability" min="0" max="1" step=".1">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <button type="submit" class="btn btn-primary" ng-disabled="projectForm.$invalid">Save</button>
+    </div>
+  </div>
+</form>

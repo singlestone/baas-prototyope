@@ -1,0 +1,33 @@
+<h1 ng-show="level.isAdd">Add Level</h1>
+<h1 ng-hide="level.isAdd">Edit Level</h1>
+<form name="levelForm" class="form-horizontal" ng-submit="level.save(level.level)" novalidate>
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="name" id="name" placeholder="Name" type="text" required
+             ng-model="level.level.name">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="abbreviation" class="col-sm-2 control-label">Abbreviation</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="abbreviation" id="abbreviation" placeholder="Abbreviation" type="text" required
+             ng-model="level.level.abbreviation">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="order" class="col-sm-2 control-label">Order</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="order" id="order" placeholder="Order" type="number" required
+             ng-model="level.level.order">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <button type="submit" class="btn btn-primary" ng-disabled="levelForm.$invalid">Save</button>
+    </div>
+  </div>
+</form>

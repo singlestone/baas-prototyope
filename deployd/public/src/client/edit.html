@@ -1,0 +1,24 @@
+<h1 ng-show="client.isAdd">Add Client</h1>
+<h1 ng-hide="client.isAdd">Edit Client</h1>
+<form name="clientForm" class="form-horizontal" ng-submit="client.save(client.client)" novalidate>
+  <div class="form-group">
+    <label for="name" class="col-sm-2 control-label">Name (Last, First)</label>
+    <div class="col-sm-4">
+      <input class="form-control" name="name" id="name" placeholder="Name" type="text" required
+             ng-model="client.client.name">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label for="clientPartnerId" class="col-sm-2 control-label">Client Partner</label>
+    <div class="col-sm-4">
+      <consultant-select ng-model="client.client.clientPartnerId" name="clientPartnerId" id="clientPartnerId" default-value="Select a Client Partner"/>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-6">
+      <button type="submit" class="btn btn-primary" ng-disabled="clientForm.$invalid">Save</button>
+    </div>
+  </div>
+</form>

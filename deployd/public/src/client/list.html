@@ -1,0 +1,21 @@
+<div class="row">
+  <h1 class="col-md-6">Clients</h1>
+  <div class="col-md-6 page-actions">
+    <a class="btn btn-primary pull-right" href="#/client/add">Add</a>
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Partner</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="client in client.clients track by client.id">
+      <td><a ng-href="#/client/{{client.id}}">{{ client.name }}</a></td>
+      <td>{{ client.clientPartner.name }}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,14 @@
+<div class="row">
+  <h1 class="col-md-6">{{ role.role.name }}</h1>
+  <div class="col-md-6 page-actions">
+    <div class="btn-group pull-right">
+      <a class="btn btn-default" ng-href="#/role/{{ role.role.id }}/edit">Edit</a>
+      <button type="button" class="btn btn-danger" ng-click="role.remove(role.role)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">Team:</div>
+  <div class="col-md-4" ng-if="role.role.team">{{ role.role.team.name }}</div>
+</div>

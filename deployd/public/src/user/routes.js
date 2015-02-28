@@ -31,9 +31,6 @@
           roles: function(Role) {
             return Role.search();
           },
-          consultants: function(Consultant) {
-            return Consultant.search();
-          },
           user: function() {
             return;
           }
@@ -50,14 +47,10 @@
           roles: function(Role) {
             return Role.search();
           },
-          consultants: function(Consultant) {
-            return Consultant.search();
-          },
           user: function(User, $route) {
             return User.get($route.current.params.id)
           }
         }
-      })
-      ;
+      });
   }
 })();

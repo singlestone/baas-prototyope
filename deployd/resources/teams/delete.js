@@ -8,5 +8,5 @@ dpd.roles.get({ teamId: this.id }, exists('Team used for at least one role.'));
 function exists(msg) {
     return function(results) {
         errorIf(results.length !== 0, 'id', msg);
-    }
+    };
 }

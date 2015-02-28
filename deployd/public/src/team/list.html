@@ -18,8 +18,8 @@
     <tr ng-repeat="t in team.teams | orderBy:'order' track by t.id">
       <td><a ng-href="#/team/{{t.id}}">{{ t.name }}</a></td>
       <td>{{ t.abbreviation }}</td>
-      <td>{{ team.getParent(t.parentTeamId).name }}</td>
-      <td>{{ team.getManager(t.managerId).name }}</td>
+      <td>{{ t.parentTeam.name }}</td>
+      <td>{{ t.manager.name }}</td>
     </tr>
   </tbody>
 </table>

@@ -15,8 +15,7 @@
           // authRequired: true
         },
         resolve: {
-          teams: Teams,
-          consultants: Consultants
+          teams: Teams
         }
       })
       .when('/team/add', {
@@ -27,8 +26,6 @@
           // authRequired: true
         },
         resolve: {
-          consultants: Consultants,
-          teams: Teams,
           team: function() { return; }
         }
       })
@@ -52,25 +49,23 @@
           // authRequired: true
         },
         resolve: {
-          team: GetTeam,
-          consultants: Consultants,
-          teams: Teams
+          team: EditTeam,
         }
       });
 
     GetTeam.$inject = ['Team', '$route'];
     function GetTeam(Team, $route) {
-      return Team.get($route.current.params.id);
+      return Team.get($route.current.params.id, { loadRelations: true } );
     }
 
-    Consultants.$inject = ['Consultant'];
-    function Consultants(Consultant) {
-      return Consultant.search();
+    EditTeam.$inject = ['Team', '$route'];
+    function EditTeam(Team, $route) {
+      return Team.get($route.current.params.id);
     }
 
     Teams.$inject = ['Team'];
     function Teams(Team) {
-      return Team.search();
+      return Team.search({ loadRelations: true });
     }
   }
 })();

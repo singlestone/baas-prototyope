@@ -15,9 +15,7 @@
           // authRequired: true
         },
         resolve: {
-          consultants: Consultants,
-          teams: Teams,
-          levels: Levels
+          consultants: Consultants
         }
       })
       .when('/consultant/add', {
@@ -28,9 +26,6 @@
           // authRequired: true
         },
         resolve: {
-          consultants: Consultants,
-          teams: Teams,
-          levels: Levels,
           roles: Roles,
           consultant: function() { return; }
         }
@@ -43,8 +38,7 @@
           // authRequired: true
         },
         resolve: {
-          consultant: GetConsultant,
-          roles: Roles
+          consultant: GetConsultant
         }
       })
       .when('/consultant/:id/edit', {
@@ -55,32 +49,24 @@
           // authRequired: true
         },
         resolve: {
-          consultant: GetConsultant,
-          consultants: Consultants,
-          teams: Teams,
-          levels: Levels,
+          consultant: EditConsultant,
           roles: Roles
         }
       });
 
     GetConsultant.$inject = ['Consultant', '$route'];
     function GetConsultant(Consultant, $route) {
+      return Consultant.get($route.current.params.id, { loadRelations: true });
+    }
+
+    EditConsultant.$inject = ['Consultant', '$route'];
+    function EditConsultant(Consultant, $route) {
       return Consultant.get($route.current.params.id);
     }
 
     Consultants.$inject = ['Consultant'];
     function Consultants(Consultant) {
-      return Consultant.search();
-    }
-
-    Teams.$inject = ['Team'];
-    function Teams(Team) {
-      return Team.search();
-    }
-
-    Levels.$inject = ['Level'];
-    function Levels(Level) {
-      return Level.search();
+      return Consultant.search({ loadRelations: true });
     }
 
     Roles.$inject = ['Role'];

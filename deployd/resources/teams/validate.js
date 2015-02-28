@@ -8,7 +8,7 @@ dpd.teams.get(like('name'), unique('name'));
 dpd.teams.get(like('abbreviation'), unique('abbreviation'));
 
 // abbreviation.length <= 6
-errorIf(team.abbreviation.length > 6, 'abbreviation', 'Abbreviation must be 6 characters or less.')
+errorIf(team.abbreviation.length > 6, 'abbreviation', 'Abbreviation must be 6 characters or less.');
 
 // managerId exists in Consultants
 if (team.managerId) {
@@ -36,11 +36,11 @@ function unique(fieldName) {
         if (teams.length && (!team.id || team.id !== teams[0].id)) {
             error(fieldName, fieldName + ' must be unique');
         }
-    }
+    };
 }
 
 function exists(fieldValue, fieldName, collectionName) {
     return function(results) {
         errorIf(results.length === 0, fieldName, fieldValue + ' is not a valid ' + collectionName);
-    }
+    };
 }

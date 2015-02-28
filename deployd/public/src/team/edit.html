@@ -20,22 +20,14 @@
   <div class="form-group">
     <label for="managerId" class="col-sm-2 control-label">Manager</label>
     <div class="col-sm-4">
-      <select name="managerId" class="form-control" id="managerId"
-              ng-model="team.team.managerId"
-              ng-options="manager.id as manager.name for manager in team.managers | orderBy:'name'">
-              <option value="">Select a Manager</option>
-      </select>
+      <consultant-select ng-model="team.team.managerId" name="managerId" id="managerId" default-value="Select a Manager"/>
     </div>
   </div>
 
   <div class="form-group">
     <label for="parentTeamId" class="col-sm-2 control-label">Parent Team</label>
     <div class="col-sm-4">
-      <select name="parentTeamId" class="form-control" id="teamId"
-              ng-model="team.team.parentTeamId"
-              ng-options="t.id as team.getTeamName(t) for t in team.teams | orderBy:'order'">
-              <option value="">Select a Team</option>
-      </select>
+      <team-select ng-model="team.team.parentTeamId" id="parentTeamId" name="parentTeamId"/>
     </div>
   </div>
 

@@ -4,14 +4,13 @@
   angular.module('talentd')
     .controller('UserCtrl', UserCtrl);
 
-  UserCtrl.$inject = ['$location', 'user', 'User', 'consultants', 'USER_ROLES'];
-  function UserCtrl($location, user, User, consultants, USER_ROLES) {
+  UserCtrl.$inject = ['$location', 'user', 'User', 'USER_ROLES'];
+  function UserCtrl($location, user, User, USER_ROLES) {
     var vm = this;
 
     vm.isAdd = !user;
     vm.user = user ? user.data : { roles: [] };
     vm.roles = _.values(USER_ROLES);
-    vm.consultants = consultants.data;
     vm.newRole;
 
     vm.save = save;

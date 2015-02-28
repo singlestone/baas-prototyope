@@ -39,11 +39,7 @@
   <div class="form-group">
     <label for="consultantId" class="col-sm-2 control-label">Consultant</label>
     <div class="col-sm-4">
-      <select name="consultantId" class="form-control" id="consultantId"
-              ng-model="user.user.consultantId"
-              ng-options="consultant.id as consultant.name for consultant in user.consultants">
-              <option value="">Select a Consultant</option>
-      </select>
+      <consultant-select ng-model="user.user.consultantId"/>
     </div>
   </div>
 

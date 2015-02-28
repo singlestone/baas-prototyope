@@ -13,12 +13,20 @@
       remove: remove
     };
 
-    function search() {
-      return $http.get('/teams');
+    function search(params) {
+      var config = {};
+      if (params) {
+        config.params = params;
+      }
+      return $http.get('/teams', config);
     }
 
-    function get(id) {
-      return $http.get('/teams/' + id);
+    function get(id, params) {
+      var config = {};
+      if (params) {
+        config.params = params;
+      }
+      return $http.get('/teams/' + id, config);
     }
 
     function save(team) {

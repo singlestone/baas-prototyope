@@ -28,33 +28,21 @@
   <div class="form-group">
     <label for="levelId" class="col-sm-2 control-label">Level</label>
     <div class="col-sm-4">
-      <select name="levelId" class="form-control" id="levelId" required
-              ng-model="con.consultant.levelId"
-              ng-options="level.id as level.name for level in con.levels | orderBy:'order'">
-              <option value="">Select a Level</option>
-      </select>
+      <level-select ng-model="con.consultant.levelId" />
     </div>
   </div>
 
   <div class="form-group">
     <label for="teamId" class="col-sm-2 control-label">Team</label>
     <div class="col-sm-4">
-      <select name="teamId" class="form-control" id="teamId" required
-              ng-model="con.consultant.teamId"
-              ng-options="team.id as con.getTeamName(team) for team in con.teams | orderBy:'order'">
-              <option value="">Select a Team</option>
-      </select>
+      <team-select ng-model="con.consultant.teamId" required />
     </div>
   </div>
 
   <div class="form-group">
     <label for="managerId" class="col-sm-2 control-label">Manager</label>
     <div class="col-sm-4">
-      <select name="managerId" class="form-control" id="managerId"
-              ng-model="con.consultant.managerId"
-              ng-options="manager.id as manager.name for manager in con.managers | orderBy:'name'">
-              <option value="">Select a Manager</option>
-      </select>
+      <consultant-select ng-model="con.consultant.managerId" name="managerId" id="managerId" default-value="Select a Manager"/>
     </div>
   </div>
 
@@ -69,11 +57,7 @@
           </button>
         </span>
       </div>
-      <select name="newRole" class="form-control" id="newRole"
-              ng-model="con.newRole" ng-change="con.addRole(con.newRole)"
-              ng-options="role.id as role.name for role in con.roles">
-              <option value="">Select a role</option>
-      </select>
+      <role-select name="newRole" id="newRole" ng-model="con.newRole" ng-change="con.addRole(con.newRole)" />
     </div>
   </div>
 

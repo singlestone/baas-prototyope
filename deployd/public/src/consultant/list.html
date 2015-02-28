@@ -19,8 +19,8 @@
     <tr ng-repeat="consultant in con.consultants track by consultant.id">
       <td><a ng-href="#/consultant/{{consultant.id}}">{{ consultant.name }}</a></td>
       <td>{{ consultant.title }}</td>
-      <td>{{ consultant.levelId }}</td>
-      <td>{{ consultant.teamId }}</td>
+      <td>{{ consultant.level.name }}</td>
+      <td>{{ consultant.team.name }}</td>
       <td>{{ consultant.email }}</td>
     </tr>
   </tbody>

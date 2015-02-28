@@ -13,12 +13,20 @@
       remove: remove
     };
 
-    function search() {
-      return $http.get('/consultants');
+    function search(params) {
+      var config = {};
+      if (params) {
+        config.params = params;
+      }
+      return $http.get('/consultants', config);
     }
 
-    function get(id) {
-      return $http.get('/consultants/' + id);
+    function get(id, params) {
+      var config = {};
+      if (params) {
+        config.params = params;
+      }
+      return $http.get('/consultants/' + id, config);
     }
 
     function save(consultant) {

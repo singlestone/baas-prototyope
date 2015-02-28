@@ -20,11 +20,7 @@
   <div class="form-group">
     <label for="clientId" class="col-sm-2 control-label">Client</label>
     <div class="col-sm-4">
-      <select name="clientId" class="form-control" id="clientId" required
-              ng-model="proj.project.clientId"
-              ng-options="client.id as client.name for client in proj.clients | orderBy:'name'">
-              <option value="">Select a Client</option>
-      </select>
+      <client-select ng-model="proj.project.clientId" required />
     </div>
   </div>
 

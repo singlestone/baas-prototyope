@@ -19,26 +19,27 @@
         }
       })
       .when('/project/add', {
-        controller: 'ProjectAddCtrl',
+        controller: 'ProjectEditCtrl',
         controllerAs: 'proj',
-        templateUrl: 'src/project/add.html',
+        templateUrl: 'src/project/edit.html',
         data: {
           // authRequired: true
         },
         resolve: {
-          clients: Clients,
-          statuses: Statuses
+          statuses: Statuses,
+          project: function() { return; }
         }
       })
       .when('/project/:id', {
         controller: 'ProjectViewCtrl',
         controllerAs: 'proj',
-        templateUrl: 'src/projet/view.html',
+        templateUrl: 'src/project/view.html',
         data: {
           // authRequired: true
         },
         resolve: {
-          projet: GetProject
+          project: GetProject,
+          utilization: Utilization
         }
       })
       .when('/project/:id/edit', {
@@ -49,27 +50,34 @@
           // authRequired: true
         },
         resolve: {
-          project: GetProject
+          project: EditProject,
+          statuses: Statuses
         }
       });
 
     GetProject.$inject = ['Project', '$route'];
     function GetProject(Project, $route) {
-      return Projects.get($route.current.params.id);
+      return Project.get($route.current.params.id, { loadRelations: true } );
+    }
+
+    EditProject.$inject = ['Project', '$route'];
+    function EditProject(Project, $route) {
+      return Project.get($route.current.params.id);
     }
 
     Projects.$inject = ['Project'];
     function Projects(Project) {
-      return Projects.search();
+      return Project.search({ loadRelations: true} );
     }
 
-    Clients.$inject = ['Client'];
-    function Clients(Client) {
-      return Client.search();
+    Statuses.$inject = ['Project'];
+    function Statuses(Project) {
+      return Project.statuses();
     }
 
-    function Statuses() {
-      return ['Proposal', 'SoW', 'In Delivery', 'Complete'];
+    Utilization.$inject = ['Utilization', '$route'];
+    function Utilization(Utilization, $route) {
+      return Utilization.search({ projectId: $route.current.params.id });
     }
   }
 })();

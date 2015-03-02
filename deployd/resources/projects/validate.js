@@ -9,11 +9,20 @@ dpd.clients.get(project.clientId, exists(project.clientId, 'clientId', 'Client')
 
 // endDate > startDate
 if (project.startDate && project.endDate) {
-    errorIf(project.startDate > project.endDate, 'endDate', 'End date must be after start date.')
+    errorIf(project.startDate > project.endDate, 'endDate', 'End date must be after start date.');
 }
 
 // validate probability
 errorIf(project.probability < 0 || project.probability > 1, 'probability', 'Probability must be between 0 and 1.')
+
+// Ignore extra properties attached to members
+if (project.members) {
+    project.members.forEach(function(member) {
+        delete member.consultant;
+        delete member.level;
+        delete member.roles;
+    });
+}
 
 // Helper functions
 function like(field) {

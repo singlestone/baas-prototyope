@@ -1,4 +1,5 @@
-<h1>Add Project</h1>
+<h1 ng-show="proj.isAdd">Add Project</h1>
+<h1 ng-hide="proj.isAdd">Edit Project</h1>
 
 <form name="projectForm" class="form-horizontal" ng-submit="proj.save(proj.project)" novalidate>
   <div class="form-group">
@@ -30,7 +31,7 @@
       <p class="input-group">
         <input type="text" class="form-control" id="startDate" name="startDate" placeholder="mm/dd/yyyy"
                datepicker-popup="{{proj.date.format}}" is-open="proj.date.startOpened" datepicker-options="proj.date.options"
-               ng-model="proj.project.startDate" ng-required="true" />
+               ng-model="proj.project.startDate" required />
         <span class="input-group-btn">
           <button type="button" class="btn btn-default" ng-click="proj.date.open('start', $event)">
             <i class="glyphicon glyphicon-calendar"></i>
@@ -46,7 +47,7 @@
       <p class="input-group">
         <input type="text" class="form-control" id="endDate" name="endDate" placeholder="mm/dd/yyyy"
                datepicker-popup="{{proj.date.format}}" is-open="proj.date.endOpened" datepicker-options="proj.date.options"
-               ng-model="proj.project.endDate" ng-required="true" />
+               ng-model="proj.project.endDate" required />
         <span class="input-group-btn">
           <button type="button" class="btn btn-default" ng-click="proj.date.open('end', $event)">
             <i class="glyphicon glyphicon-calendar"></i>

@@ -7,18 +7,31 @@
   Project.$inject = ['$http'];
   function Project($http) {
     return {
+      statuses: statuses,
       search: search,
       get: get,
       save: save,
       remove: remove
     };
 
-    function search() {
-      return $http.get('/projects');
+    function statuses() {
+      return [ 'Opportunity', 'Delivery', 'Completed' ];
     }
 
-    function get(id) {
-      return $http.get('/projects/' + id);
+    function search(params) {
+      var config = {};
+      if (params) {
+        config.params = params;
+      }
+      return $http.get('/projects', config);
+    }
+
+    function get(id, params) {
+      var config = {};
+      if (params) {
+        config.params = params;
+      }
+      return $http.get('/projects/' + id, config);
     }
 
     function save(project) {

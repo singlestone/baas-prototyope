@@ -1,0 +1,11 @@
+<div>
+  <div class="input-group" ng-repeat="role in roles track by $index">
+    <input type="text" class="form-control" readonly ng-value="getRole(role).name">
+    <span class="input-group-btn">
+      <button class="btn btn-default" type="button" ng-click="removeRole(role)">
+        <span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span>
+      </button>
+    </span>
+  </div>
+  <role-select name="newRole" id="newRole" ng-model="newRole" ng-change="addRole(newRole)" />
+</div>

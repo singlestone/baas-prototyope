@@ -1,0 +1,84 @@
+<div class="row">
+  <h1 class="col-md-6">{{ proj.project.name }}</h1>
+  <div class="col-md-6 page-actions">
+    <div class="btn-group pull-right">
+      <a class="btn btn-default" ng-href="#/project/{{ proj.project.id }}/edit">Edit</a>
+      <button type="button" class="btn btn-danger" ng-click="proj.remove(proj.project)">Delete</button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">Probability:</div>
+  <div class="col-md-4">{{ proj.project.probability * 100 | number:0 }}%</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">Status:</div>
+  <div class="col-md-4">{{ proj.project.status }}</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">Client:</div>
+  <div class="col-md-4">{{ proj.project.client.name }}</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">Start Date:</div>
+  <div class="col-md-4">{{ proj.project.startDate | date:'dd-MMM-yyyy' }}</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">End Date:</div>
+  <div class="col-md-4">{{ proj.project.endDate | date:'dd-MMM-yyyy' }}</div>
+</div>
+
+<div class="row">
+  <div class="col-md-2 view-label">Description:</div>
+  <div class="col-md-4">{{ proj.project.description }}</div>
+</div>
+
+
+<h3>Team</h3>
+<table class="table" ng-show="proj.project.members.length">
+  <thead>
+    <tr>
+      <th>Actions</th>
+      <th>Roles</th>
+      <th>Talent</th>
+      <th>Location</th>
+      <th>Level</th>
+      <th ng-repeat="week in proj.weeks track by week.dt" ng-show="proj.weekShown(week.date)">{{ week.display }}</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="member in proj.project.members track by member.id">
+      <td>
+        <div class="btn-group">
+          <button type="button" class="btn btn-default btn-xs" ng-click="proj.editMember(member)">
+            <span class="glyphicon glyphicon-pencil"></span>
+          </button>
+          <button type="button" class="btn btn-default btn-xs" ng-click="proj.removeMember(member)">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+          <button type="button" class="btn btn-default btn-xs" ng-click="proj.moveUp($index)" ng-disabled="$first">
+            <span class="glyphicon glyphicon-arrow-up"></span>
+          </button>
+          <button type="button" class="btn btn-default btn-xs" ng-click="proj.moveDown($index)" ng-disabled="$last">
+            <span class="glyphicon glyphicon-arrow-down"></span>
+          </button>
+        </div>
+      </td>
+      <td><span ng-repeat="role in member.roles">{{ role.abbreviation}}<span ng-hide="$last">, </span></span></td>
+      <td>{{ member.consultant.name }}</td>
+      <td>{{ member.location }}</td>
+      <td>{{ member.level.abbreviation }}</td>
+      <td ng-repeat="utilization in proj.memberUtilization[member.id]"
+          ng-show="proj.weekShown(utilization.date)">
+          <input type="number" ng-model="utilization.hours" ng-change="proj.upsertUtilization(utilization)"
+                 min="0" max="45" step="5"/>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<button type="button" class="btn btn-primary" ng-click="proj.addMember()">Add Member</button>

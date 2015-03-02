@@ -2,14 +2,14 @@
   'use strict';
 
   angular.module('talentd')
-    .controller('ProjectAddCtrl', ProjectAddCtrl);
+    .controller('ProjectEditCtrl', ProjectEditCtrl);
 
-  ProjectAddCtrl.$inject = ['$location', 'clients', 'statuses', 'Project'];
-  function ProjectAddCtrl($location, clients, statuses, Project) {
+  ProjectEditCtrl.$inject = ['$location', 'project','statuses', 'Project'];
+  function ProjectEditCtrl($location, project, statuses, Project) {
     var vm = this;
 
-    vm.project = { members: [] };
-    vm.clients = clients.data;
+    vm.isAdd = !project;
+    vm.project = vm.isAdd ? { members: [] } : project.data;
     vm.statuses = statuses;
     vm.date = {
       options: { startingDay: 1 },
@@ -27,7 +27,7 @@
 
       Project.save(project).then(
         function(response) {
-          $location.path('/project/' + response.data.id + '/edit');
+          $location.path('/project/' + response.data.id);
         }
       );
     }

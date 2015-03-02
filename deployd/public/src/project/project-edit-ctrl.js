@@ -6,7 +6,7 @@
 
   ProjectEditCtrl.$inject = ['$location', 'project','statuses', 'Project'];
   function ProjectEditCtrl($location, project, statuses, Project) {
-    var vm = this;
+    var vm = this;  
 
     vm.isAdd = !project;
     vm.project = vm.isAdd ? { members: [] } : project.data;

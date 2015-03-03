@@ -39,34 +39,34 @@ There are a couple of reasons why BaaS is a good fit for Prototype development:
 
 ## Comparison Matrix
 
-Feature | deployd
---------|--------
-Persistence | Yes (MongoDB)
-Custom Endpoints | Yes
-Custom Validation | Yes
-Extensible | Yes (NodeJS Modules)
-Realtime | Optional (WebSockets)
-UI Hosting | Yes
-Local Dev | Yes
-Local Install | Yes
-Hosted | No
-VCS Friendly | Yes
-Tasks/Jobs | Via plugin
-Execute arbitrary code | Via plugins
-Email support | Via plugin
-Geo Services | Via Mongo
-User Mangement | Yes
-User Authorization | Yes
-Auth: Password | Yes
-Auth: Facebook | Via plugin
-Auth: Google+ | Via plugin
-Auth: Twitter | Via plugin
-Auth: Custom | Via plugin
-Auth: LDAP | ?
-A/B Testing | No
-File uploads | S3 via plugin
-Proxy 3rd party services | Via plugin
-Admin Console | Yes
-Push Notifications | No
-Integrated Analytics | No
+Feature | deployd | BaasBox | Hoodie
+--------|---------|---------|--------
+Persistence | Yes (MongoDB) | Yes (OrientDB) | Yes (CouchDB)
+Custom Endpoints | Yes | Yes | Via Plugin
+Custom Validation | Yes | No | No
+Extensible | Yes (NodeJS Modules) | Yes (Javascript plugins) | Yes (plugins)
+Realtime | Optional (WebSockets) | No | No
+UI Hosting | Yes | No | Yes
+Local Dev | Yes | Yes | Yes
+Local Install | Yes | Yes | Yes
+Hosted | No | Yes (Subscription) | No
+VCS Friendly | Yes | No | Yes
+Tasks/Jobs | Via plugin | Via plugin? | Via plugin?
+Execute arbitrary code | Via plugins | Via Plugin?
+Email support | Via plugin | No | Yes
+Geo Services | Via Mongo | Via Orient DB | Via plugin
+User Mangement | Yes | Yes | Yes
+User Authorization | Yes | Yes | Yes
+Auth: Password | Yes | Yes | Yes
+Auth: Facebook | Via plugin | Yes | Via plugin
+Auth: Google+ | Via plugin | Yes | Via plugin
+Auth: Twitter | Via plugin | No | Via plugin
+Auth: Custom | Via plugin | No | Via plugin
+Auth: LDAP | ? | ? | ?
+A/B Testing | No | No | No
+File uploads | S3 via plugin | Yes | Via plugin
+Proxy 3rd party services | Via plugin | Via plugin | Via plugin
+Admin Console | Yes | Yes | Yes
+Push Notifications | No | Yes | No
+Integrated Analytics | No | No | No
 
